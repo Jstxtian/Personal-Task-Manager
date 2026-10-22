@@ -17,5 +17,6 @@
     "strict": true, // catch as many mistakes as possible
     "esModuleInterop": true, // ;ets us write: import express from "express" and others
     "skipLibCheck": true // dont type-check code inside node_modules
-  }
+  },
+  "include": ["src"]
 }
