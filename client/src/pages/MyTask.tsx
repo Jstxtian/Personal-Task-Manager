@@ -4,22 +4,17 @@ import { FaPlus, FaRegEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import type { Task } from "../types";
-import { deleteTask, getErrorMessage, getTasks } from "../api";
+import { deleteTask, getTasks } from "../api";
 
 const MyTask = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [error, setError] = useState("");
 
   // Step1: load the tasks once, hwen the page first appears
   useEffect(() => {
     const fetchTasks = async () => {
-      try {
-        const data = await getTasks();
-        setTasks(data);
-        console.log(data);
-      } catch (err) {
-        setError(getErrorMessage(err));
-      }
+      const data = await getTasks();
+      setTasks(data);
+      console.log(data);
     };
 
     fetchTasks();
